@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    {% load static %}
+    <title>Mis Perris</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static "css/estilos.css" %}" />
+</head>
+
+<body>
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark mis-perris-navbar">
+                <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="navbar-brand" href="#">
+                                <img src="{% static "img/logo.png" %}" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mx-auto order-0">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 center">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">¿Quiénes somos?
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Servicios</a>
+                        </li>
+                        <li class="nav-item active ">
+                            <a class="nav-link disabled hover" href="#">Contáctanos</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline">
+                        <a class="nav-link btn btn-success" href="#" id="iniciar">Iniciar Sesión</a>
+                        <a class="nav-link btn btn-primary" href="#" id="registrar">Registrarse</a>
+                    </form>
+                </div>
+            </nav>
+        </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="main" class="">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100 max-height center-cropped" src="{% static "img/adoptados/Apolo.jpg" %}" First slide>
+                            <div class="carousel-caption d-none d-md-block">
+                                <p class="p1 left">"Apolo es un amigo que nos acompaña día a día y disfruta de nuestros paseos"</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100 max-height center-cropped" src="{% static "img/adoptados/Duque.jpg" %}" alt="Second slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <p class="p2 right">"Junto a mi fiel compañero Duque, puedo disfrutar de la naturaleza y las aventuras al aire
+                                    libre"</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100 max-height center-cropped" src="{% static "img/adoptados/Tom.jpg" %}" alt="Third slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <p class="p1 left">"Estamos felicides de tener a Tom, nos llegó a cambiar nuestro estilo de vida"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mis-perris-navbar">
+        <div class="col address">
+            + 56 9 98765431
+        </div>
+        <div class="col address">
+            <p>Rescate y adopción de perros callejeros </p>
+        </div>
+
+
+        <div id="social" class="col">
+            <nav class="navbar navbar-expand-lg navbar-light mis-perris-navbar">
+                <a href="">
+                    <i class="fa fa-facebook iconos" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                    <i class="fa fa-google-plus iconos" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                    <i class="fa fa-instagram iconos" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                    <i class="fa fa-envelope iconos" aria-hidden="true"></i>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="separation"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Rescate</h2>
+                <p class="subtitulo">Etapa Uno</p>
+                <hr>
+                <p>Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos y los preparamos para buscarles
+                    un hogar.
+                </p>
+                <img src="{% static "img/rescate.jpg" %}" alt="Perro Negro">
+            </div>
+            <div class="col">
+                <img src="{% static "img/crowfunding.jpg" %}" alt="">
+                <h2>CROWDFUNDING</h2>
+                <p class="subtitulo">Financiamiento</p>
+                <hr>
+                <p>
+                    Sigue nuestras redes sociales para informarte acerca de las diversas campañas y actividades que realizamos para obtener financiamiento
+                    para seguir ayudando.
+                </p>
+                <button type="button" name="button">CAMPAÑAS</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="separation"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-md-4">
+                <div class="post">
+                    <div class="post-img-content">
+                        <img src="{% static "img/rescatados/Bigotes_tn.jpg" %}" class="img-responsive" />
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                            <b>Bigotes</b> |
+                            <time datetime="2014-01-20">Septiembre, 2018</time>
+                        </div>
+                        <div>
+                            Rescatado hace 8 meses, Macho cruce con Russel terrier, de 8 meses ½ meses aprox, vacunado, desparacitado, mucha energía,
+                            juega con niños, pasea con arnes, le gusta la pelota y su peluche. necesita mucha diciplina.
+                            Fue adoptado y devuelto, ahora espera por una segunda oportunidad, falta instalar diciplina y
+                            normas en su conducta.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="post">
+                    <div class="post-img-content">
+                        <img src="{% static "img/rescatados/Luna_tn.jpg" %}" class="img-responsive" />
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                            <b>Luna</b>
+                            <time datetime="2014-01-20">Septiembre, 2018</time>
+                        </div>
+                        <div>
+                            Rescatada hace solo 1 mes, de 3 meses aprox, solo tiene triple, desparacitada, y ESTERILIZADA, muy juguetona, le gusta la
+                            pelota, le gusta jugar con los niños, es obediente, pero necesita ser siempre diciplinada, por
+                            tener tanta energía, necesita tener un hogar donde la quieran le entregen Amor, compañia y buena
+                            disciplina.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="post">
+                    <div class="post-img-content">
+                        <img src="{% static "img/rescatados/Chocolate_tn.jpg" %}" class="img-responsive" />
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                            <b>Chocolate</b>
+                            <time datetime="2014-01-20">Septiembre, 2018</time>
+                        </div>
+                        <div>
+                            Rescatado hace 9 meses , Macho cruce con pastor alemán de tamaño mediano, de casi 2 años aprox, Tiene todas vacunas al día,
+                            desparacitadp , ESTERILIZADO, muy buen caradter, le teme a las personas desconocidas y ruidos
+                            fuertes, muy timido, le gustan los niños,necesita tener nivel medio de diciplina.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-md-4">
+                <div class="post">
+                    <div class="post-img-content">
+                        <img src="{% static "img/rescatados/Maya_tn.jpg" %}" class="img-responsive" />
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                            <b>Maya</b> |
+                            <time datetime="2014-01-20">Septiembre, 2018</time>
+                        </div>
+                        <div>
+                            Rescatada hace 3 meses, Hembra menos de 6 meses aprox cruce Russel terrier tamaño baja –pequeña-robusta, desparacitada,
+                            muy buen caradter, muy sociable, muy obediente y diciplinada, no necesita refuerzo en su diciplina
+                            y comandos, sabe pasear con arnes, es muy tolerante y le encanta jugar con los niños.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="post">
+                    <div class="post-img-content">
+                        <img src="{% static "img/rescatados/Oso_tn.jpg" %}" class="img-responsive" />
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                            <b>Oso</b> |
+                            <time datetime="2014-01-20">Septiembre, 2018</time>
+                        </div>
+                        <div>
+                            Rescatado hace 6 meses, Macho cruce con labrador Retriever, de 5 años de vida, vacunas al día, desparacitado, ESTERILIZADO,
+                            caradter: muy, muy juguetón, mucha energía, es obediente, le gusta jugar con los niños, le gusta
+                            la pelota y su palito. Necesita reforzar su obediencia de forma constante.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="post">
+                    <div class="post-img-content">
+                        <img src="{% static "img/rescatados/Pexel_tn.jpg" %}" class="img-responsive" />
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                            <b>Pexel</b> |
+                            <time datetime="2014-01-20">Septiembre, 2018</time>
+                        </div>
+                        <div>
+                            Macho de 2 años, desparacitado, vacunas al día, pasa por peluquería, castrado, muy sociable, demandante de afecto, obediente,
+                            le gusta los niños, pasea con arnes, necesita nivel alto de diciplina, se lo da en adopción a
+                            hogares que hallan tenido experiencia con razas pequeñas.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+
+    <div class="container">
+        <br>
+        <br>
+        <h2>Formulario de Registro</h2>
+        <div class="row">
+
+            <div class="col-xs-12  col-md-4">
+                <form method="POST">
+                    <br>
+                    <label for="mail"> Correo electronico</label>
+                    <input type="email" id="email" class="form-control" placeholder="email@host.com" required>
+                    <br>
+                    <label for="run">Run </label>
+                    <input type="text" id="run" class="form-control" pattern="\d{3,8}-[\d|kK]{1}" placeholder="ej: 12345678-k" required>
+                    <br>
+                    <label for="nombre"> Nombre completo </label>
+                    <input type="text" id="nombre" class="form-control" pattern="[A-Za-z ]+" minlength="4" required>
+                    <br>
+                    <label for="fecha"> Fecha de nacimiento</label>
+                    <input type="date" id="fecha" class="form-control" max="2001-12-31" required>
+                    <br>
+                    <label for="telefono">Número de contacto</label>
+                    <input type="number" id="telefono" class="form-control" maxlength="9" min="00000000" required>
+                    <br>
+                    <label for="region">Región</label>
+                    <select name="region" class="form-control" id="region">
+                        <option hidden>Seleccione Regíon</option>
+                    </select>
+                    <br>
+                    <label for="comuna">Comuna</label>
+                    <select class="form-control" name="comuna" id="comuna">
+                        <option hidden>Seleccione Comuna</option>
+                    </select>
+                    <br>
+                    <label for="vivienda">Tipo de vivienda </label>
+                    <select class="form-control" name="vivienda" id="vivienda">
+                        <option hidden> Seleccione su tipo de vivienda</option>
+                    </select>
+                    <br>
+
+                    <button type="submit" class="btn btn-success btn-lg btn-block"> Registrame! </button>
+                    <br>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static "js/jquery-3.3.1.js" %}"></script>
+    <script src="{% static "js/popper.js" %}"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+    <script src="{% static "js/jquery.validate.js" %}"></script>
+    <script src="{% static "js/app.js" %}"></script>
+</body>
+
+</html>
