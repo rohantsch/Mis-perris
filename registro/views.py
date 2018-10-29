@@ -17,13 +17,23 @@ def index(request):
     usuario = request.session.get('usuario',None)
     return render(request,'index.html',{'name':'Registro de personas','personas':Persona.objects.all(),'usuario':usuario})
 
-@login_required(login_url='login')
 def crear(request):
+
+
+    run = request.POST.get('run','')
     nombre = request.POST.get('nombre','')
+    fecha = request.POST.get('fecha','')
     correo = request.POST.get('correo','')
-    contrasenia = request.POST.get('contrasenia','')
-    persona = Persona(nombre=nombre,correo=correo,contrasenia=contrasenia)
-    persona.save()
+    telefono = request.POST.get('telefono','')
+    region = request.POST.get('region','')
+    comuna = request.POST.get('comuna','')
+    vivienda = request.POST.get('viviendo','')
+    contrasenia = request.POST.get('contrasenia', '')
+
+    persona = Persona(run=run, nombre=nombre, fecha=fecha, correo=correo, telefono=telefono, region=region, comuna=comuna, vivienda=vivienda, contrasenia=contrasenia)
+    persona.save()    
+    
+
     return redirect('index')
 
 @login_required(login_url='login')
@@ -43,24 +53,22 @@ def editar(request):
     persona.save()
     return redirect('index')
 
-@login_required(login_url='login')
 def cerrar_session(request):
     del request.session['usuario']
-    logout(request)
     return redirect('index')
 
 def login(request):
     return render(request,'login.html',{})
 
 def login_iniciar(request):
-    usuario = request.POST.get('nombre_usuario','')
-    contrasenia = request.POST.get('contrasenia','')
-    user = authenticate(request,username=usuario, password=contrasenia)
-
-    if user is not None:
-        auth_login(request, user)
-        request.session['usuario'] = user.first_name+" "+user.last_name
-        return redirect("index")
+    correo = request.POST.get('nombre_usuario', '')
+    contrasenia = request.POST.get('contrasenia', '')
+    persona = Persona.objects.filter(correo=correo).filter(contrasenia=contrasenia)
+    print(persona)
+    if persona is not None:
+        request.session['usuario'] = persona[0].nombre
+        request.session['id'] = persona[0].id
+        return redirect('index')
     else:
-        return redirect("login")
+        return HttpResponse('No existe')
     

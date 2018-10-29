@@ -46,7 +46,13 @@
                         </li>
                     </ul>
                     <form class="form-inline">
-                        <a class="nav-link btn btn-success" href="#" id="iniciar">Iniciar Sesión</a>
+                        {% if usuario is not null %}                            
+                            <a class="nav-link btn btn-success" href="{% url "login"%}" id="iniciar">Bienvenido {{usuario}} </a>
+                            <a class="nav-link btn btn-success" href="{% url "cerrar_session" %}" id="iniciar">Cerrar Sesión</a>
+                        {% else %}
+                            <a class="nav-link btn btn-success" href="{% url "login"%}" id="iniciar">Iniciar Sesión</a>
+                        {% endif %}
+                        
                         <a class="nav-link btn btn-primary" href="#" id="registrar">Registrarse</a>
                     </form>
                 </div>
@@ -281,22 +287,27 @@
         <div class="row">
 
             <div class="col-xs-12  col-md-4">
-                <form method="POST">
+                <form action="{% url 'crear' %}" method="post">
+                        {% csrf_token %}
                     <br>
                     <label for="mail"> Correo electronico</label>
-                    <input type="email" id="email" class="form-control" placeholder="email@host.com" required>
+                    <input type="email" id="email" name="correo" class="form-control" placeholder="email@host.com" required>
+                    <br>
+                    <br>
+                    <label for="contrasenia"> Contraseña</label>
+                    <input type="password" name="contrasenia" id="contrasenia" class="form-control" required>
                     <br>
                     <label for="run">Run </label>
                     <input type="text" id="run" class="form-control" pattern="\d{3,8}-[\d|kK]{1}" placeholder="ej: 12345678-k" required>
                     <br>
                     <label for="nombre"> Nombre completo </label>
-                    <input type="text" id="nombre" class="form-control" pattern="[A-Za-z ]+" minlength="4" required>
+                    <input type="text" id="nombre" name="nombre" class="form-control" pattern="[A-Za-z ]+" minlength="4" required>
                     <br>
                     <label for="fecha"> Fecha de nacimiento</label>
-                    <input type="date" id="fecha" class="form-control" max="2001-12-31" required>
+                    <input type="date" id="fecha" name="fecha" class="form-control" max="2001-12-31" required>
                     <br>
                     <label for="telefono">Número de contacto</label>
-                    <input type="number" id="telefono" class="form-control" maxlength="9" min="00000000" required>
+                    <input type="number" id="telefono" name="telefono" class="form-control" maxlength="9" min="00000000" required>
                     <br>
                     <label for="region">Región</label>
                     <select name="region" class="form-control" id="region">
