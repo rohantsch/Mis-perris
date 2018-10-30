@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static "css/estilos.css" %}" />
+    <title>Galeria</title>
+</head>
+<body>
+
+        <div class="container separador">
+                <ul>
+                    {% for elemento in Listado_registro %}
+                         {{elemento.id}}
+                         <br>
+                         <img src="/media/{{elemento.fotografia}}" alt="error">
+                         <br>
+                         <label for="nombre"> Nombre </label>
+                         {{elemento.nombre}}
+                         <br>
+                         <label for="raza"> Raza </label>
+                         {{elemento.raza_predominante}}
+                         <br>
+                         <label for="text">DESCRIPCION:</label>
+                         {{elemento.descripcion}}
+                         <br>
+                         <label for="text">ESTADO:</label>
+                         {{elemento.estado}}
+                         <br>
+                         <br>
+                     {% endfor %}
+                </ul>
+             </div>
+    
+</body>
+</html>

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Persona
+from .models import Persona, Mascotas
 from django.shortcuts import redirect
 # Create your views here.
 
@@ -11,11 +11,54 @@ from django.contrib.auth import authenticate,logout, login as auth_login
 
 from django.contrib.auth.decorators import login_required
 
+def administrar(request):
+    return render(request, 'admin.html',{'Listado_registro':Mascotas.objects.all(), 'personas': Persona.objects.all()})
 
+def galeria(request):
+    return render(request, 'galeria.html',{'Listado_registro':Mascotas.objects.all()})
+
+
+def registPerro(request):
+
+    fotografia = request.FILES.get('fotografia', False)
+    nombre_mascota = request.POST.get('nombreMascota', '')
+    raza_predominante = request.POST.get('razaPredominante', '')
+    descripcion = request.POST.get('descripcion', '')
+    estado = request.POST.get('estado', '')
+
+    mascota = Mascotas(fotografia = fotografia, nombre_mascota = nombre_mascota, raza_predominante = raza_predominante, descripcion = descripcion,
+                       estado =estado)
+
+    mascota.save()
+
+    return render(request, 'admin.html', {})
+
+def editPerro(request):
+
+    id_mascota = request.POST.get('modificarIdMascota', '')
+    mascota = Mascotas.objects.get(pk = id_mascota)
+
+    fotografia = request.POST.get('modificarFotografia', False)
+    nombre_mascota = request.POST.get('modificarNombreMascota', '')
+    raza_predominante = request.POST.get('modificarRazaPredominante', '')
+    descripcion = request.POST.get('modificarDescripcion', '')
+    estado = request.POST.get('modifcarEstado', '')
+
+    mascota.fotografia = fotografia
+    mascota.nombre_mascota = nombre_mascota
+    mascota.raza_predominante = raza_predominante
+    mascota.descripcion = descripcion
+    mascota.estado = estado
+
+    mascota.save()
+
+    return render(request, 'admin.html', {})
 
 def index(request):
     usuario = request.session.get('usuario',None)
     return render(request,'index.html',{'name':'Registro de personas','personas':Persona.objects.all(),'usuario':usuario})
+
+
 
 def crear(request):
 

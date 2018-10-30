@@ -15,3 +15,12 @@ class Persona(models.Model):
 
     def __str(self):
         return "PERSONA"
+
+
+class Mascotas(models.Model):
+
+    fotografia = models.ImageField(upload_to = "Imagenes/")
+    nombre_mascota = models.CharField(max_length = 20)
+    raza_predominante = models.CharField(max_length = 20)
+    descripcion = models.TextField()
+    estado = models.CharField(max_length = 20)

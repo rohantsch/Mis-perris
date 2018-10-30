@@ -46,14 +46,20 @@
                         </li>
                     </ul>
                     <form class="form-inline">
-                        {% if usuario is not null %}                            
+                        {% if usuario is not null %}    
+
+                            {% if request.user.is_superuser %}
+                                <a class="nav-link btn btn-success" href="{% url "administrar"%}" id="admin">Panel de administrador </a>
+                            {% endif %}
+
                             <a class="nav-link btn btn-success" href="{% url "login"%}" id="iniciar">Bienvenido {{usuario}} </a>
                             <a class="nav-link btn btn-success" href="{% url "cerrar_session" %}" id="iniciar">Cerrar Sesión</a>
                         {% else %}
                             <a class="nav-link btn btn-success" href="{% url "login"%}" id="iniciar">Iniciar Sesión</a>
+                            <a class="nav-link btn btn-primary" href="#Formulario-perro" id="registrar">Registrarse</a>
                         {% endif %}
                         
-                        <a class="nav-link btn btn-primary" href="#" id="registrar">Registrarse</a>
+                        
                     </form>
                 </div>
             </nav>
@@ -139,7 +145,7 @@
                 <p>Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos y los preparamos para buscarles
                     un hogar.
                 </p>
-                <img src="{% static "img/rescate.jpg" %}" alt="Perro Negro">
+                <a  href="{% url "galeria"%}"><img src="{% static "img/rescate.jpg" %}" alt="Perro Negro"></a>
             </div>
             <div class="col">
                 <img src="{% static "img/crowfunding.jpg" %}" alt="">
@@ -286,7 +292,7 @@
         <h2>Formulario de Registro</h2>
         <div class="row">
 
-            <div class="col-xs-12  col-md-4">
+            <div class="col-xs-12  col-md-4" id="Formulario-perro">
                 <form action="{% url 'crear' %}" method="post">
                         {% csrf_token %}
                     <br>
